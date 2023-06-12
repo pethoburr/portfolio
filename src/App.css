@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.typewriter {
+  color: white;
   display: flex;
-  flex-direction: column;
+  height: 100%;
+  width: 100%;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#main {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.typewriter::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  border-left: 4px solid white;
+  background-color: #07192F;
+  width: 58%;
+  height: 4rem;
+  animation: typing 3s steps(14) alternate infinite,
+             line 1s infinite;
+}
+
+.changeTxt {
+  margin-left: .5em;
+}
+
+
+@keyframes typing {
+  to{
+    width: 30%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@keyframes line {
+  50%{
+    color: transparent;
   }
 }
