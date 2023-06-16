@@ -1,0 +1,9 @@
+.ballContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ball {
+    width: 9rem;
+}

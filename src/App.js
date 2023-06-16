@@ -1,9 +1,56 @@
 import BIRDS from 'vanta/src/vanta.birds';
-import React, { useEffect, useRef } from 'react';
+import mp from '../src/assets/mp-logo.png';
+import hamburger from '../src/assets/menu.svg';
+import ScrollToTop from 'react-scroll-to-top';
+import { TypeAnimation } from 'react-type-animation';
+import React, { useEffect, useRef, useState } from 'react';
+import About from './components/about';
 import './App.css';
 
+
+
 const App = () => {
+  const [navbar, setNavbar] = useState(false);
+  const [show, setShow] = useState(false);
+  const brgrNav = <ul className='brgrNav'>
+                    <li onClick={() => scrollToSection(about)}>About</li>
+                    <li onClick={() => scrollToSection(projects)}>Projects</li>
+                    <li onClick={() => scrollToSection(contacts)}>Contact</li>
+                  </ul>
   const vanta = useRef(null);
+  const about = useRef(null);
+  const projects = useRef(null);
+  const contacts = useRef(null);
+
+  const showMenu = () => {
+    if(show) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+  }
+
+  const brgr = <span className="material-symbols-outlined" onClick={showMenu}>menu</span>
+  const x = <div className='x' onClick={showMenu}>X</div>;
+  const scrollToSection = (elementRef) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop,
+      behavior: "smooth"
+    })
+  }
+
+  const changeBackground = () => {
+    if (window.scrollY >= 46) {
+        setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  }
+
+  useEffect(() => {
+    changeBackground();
+    window.addEventListener('scroll', changeBackground);
+  })
 
   useEffect(() => {
     let effectInstance;
@@ -28,30 +75,47 @@ const App = () => {
     initializeVanta();
   },[])
 
-  useEffect(() => {
-    const text = document.querySelector('.changeTxt');
 
-    const textLoad = () => {
-      setTimeout(() => {
-        text.textContent = 'front end developer';
-      }, 8000)
-      setTimeout(() => {
-        text.textContent = 'technophile';
-      }, 4000)
-      setTimeout(() => {
-        text.textContent = 'life long learner';
-      }, 8000)
-    }
-
-    textLoad();
-    setInterval(textLoad, 12000);
-  })
   return (
     <div className="App">
           <div id='main' ref={vanta} >
-                <header className='typewriter'><h1>Hello, I'm a</h1><h1 className='changeTxt'>Front end developer</h1></header>
+                <nav className={navbar ? 'nav-scroll' : 'nav'}>
+                  <h1 className='logo'><img src={mp} alt='MP'></img></h1>
+                  <ul className='navList'>
+                    <li onClick={() => scrollToSection(about)}>About</li>
+                    <li onClick={() => scrollToSection(projects)}>Projects</li>
+                    <li onClick={() => scrollToSection(contacts)}>Contact</li>
+                  </ul>
+                  {show && brgr} {!show && x}
+                  {!show && brgrNav}
+                </nav>
+                
+                <header className='typewriter'><h1>Hello! My name is Maninder Pahal.</h1><h1 className='changeTxt'>I am a <span className='changer'>
+                  <TypeAnimation
+                     sequence={[
+                      'front end developer.',
+                      1000,
+                      'technophile.',
+                      1000,
+                      'life long learner.',
+                      1000
+                     ]}
+                     wrapper="span"
+                     speed={50}
+                     repeat={Infinity}
+                     />
+                  </span></h1></header>
+                  <ScrollToTop smooth />
+                  <div className='aboutContainer' ref={about}>
+                    <About />
+                  </div>
+                  <div className='projectContainer' ref={projects}>
+                    <h2>Projects</h2>
+                  </div>
+                  <div className='contactContainer' ref={contacts}>
+                    <h2>Contact</h2>
+                  </div>
           </div>
-          
     </div>
   );
 }
