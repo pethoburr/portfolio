@@ -6,29 +6,33 @@
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@emailjs/browser": "^3.11.0",
-    "@react-three/drei": "^9.74.15",
+    "@react-three/drei": "^9.76.0",
     "@react-three/fiber": "^8.13.3",
+    "@react-three/gltfjsx": "^4.3.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "framer-motion": "^10.12.16",
+    "gltfjsx": "^6.2.4",
     "maath": "^0.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.13.0",
-    "react-scripts": "^5.0.1",
     "react-scroll-to-top": "^3.0.0",
     "react-tilt": "^1.0.2",
     "react-type-animation": "^3.1.0",
     "react-vertical-timeline-component": "^3.6.0",
+    "source-map-loader": "^4.0.1",
+    "three": "^0.153.0",
     "vanta": "^0.5.24",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "vite",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
+    "build": "vite build",
+    "serve": "vite preview",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -51,6 +55,11 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "@vitejs/plugin-react": "^4.0.1",
+    "gh-pages": "^5.0.0",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.9",
+    "vite-plugin-svgr": "^3.2.0",
+    "vite-tsconfig-paths": "^4.2.0"
   }
 }
