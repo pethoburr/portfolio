@@ -116,8 +116,9 @@ const App = () => {
                   <div className='projectContainer' ref={projects}>
                     <Projects />
                   </div>
+                  <Contact />
                   <div className='contactContainer' ref={contacts}>
-                     <Contact />
+                  
                   </div>
           </div>
     </div>

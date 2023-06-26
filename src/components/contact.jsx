@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-
-import { EarthCanvas } from "../components/earth";
+import { EarthCanvas } from "./earth";
 import { slideIn } from "../utils/motion";
 
 const Contact = () => {
@@ -70,8 +69,8 @@ const Contact = () => {
         variants={slideIn("left", "tween", 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
       >
-        <p >Get in touch</p>
-        <h3 >Contact.</h3>
+        <p className='text-white font-black md:text-[60px] sm:text-[50px] sx:text-[40px] text-[30px]'>Get in touch</p>
+        <h3 className="sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">Contact.</h3>
 
         <form
           ref={formRef}
@@ -130,5 +129,4 @@ const Contact = () => {
     </div>
   );
 };
-
 export default Contact;
