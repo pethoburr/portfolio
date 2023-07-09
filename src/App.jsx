@@ -7,7 +7,7 @@ import { TypeAnimation } from 'react-type-animation';
 import React, { useEffect, useRef, useState } from 'react';
 import About from './components/about';
 import './App.css';
-
+import StarsCanvas from './components/canvas/stars';
 
 
 const App = () => {
@@ -43,7 +43,11 @@ const App = () => {
   }
 
   const changeBackground = () => {
-    if (window.scrollY >= 46) {
+    const windowHeight = window.innerHeight;
+    const scrollHeight = document.documentElement.scrollHeight - windowHeight;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const percentage = (scrollTop / scrollHeight) * 100;
+    if (percentage >= 1 && percentage <= 91) {
         setNavbar(true);
     } else {
       setNavbar(false);
@@ -69,6 +73,7 @@ const App = () => {
           minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
+          quantity: 2,
           birdSize: 1.20,
           color1: 0x3cff
         })
@@ -77,50 +82,56 @@ const App = () => {
     }
 
     initializeVanta();
+    
   },[])
 
 
   return (
     <div className="App">
+      <div id='main'>
           <div id='main' ref={vanta} >
-                <nav className={navbar ? 'nav-scroll' : 'nav'}>
-                  <h1 className='logowrap'><img  className='logo' src={mp} alt='MP'></img></h1>
-                  <ul className='navList'>
-                    <li onClick={() => scrollToSection(about)}>About</li>
-                    <li onClick={() => scrollToSection(projects)}>Projects</li>
-                    <li onClick={() => scrollToSection(contacts)}>Contact</li>
-                  </ul>
-                  {show && brgr} {!show && x}
-                  {!show && brgrNav}
-                </nav>
-                
-                <header className='typewriter'><h1>Hello! My name is Maninder Pahal.</h1><h1 className='changeTxt'>I am a <span className='changer'>
-                  <TypeAnimation
-                     sequence={[
-                      'front end developer.',
-                      1000,
-                      'technophile.',
-                      1000,
-                      'life long learner.',
-                      1000
-                     ]}
-                     wrapper="span"
-                     speed={50}
-                     repeat={Infinity}
-                     />
-                  </span></h1></header>
-                  <ScrollToTop smooth />
-                  <div className='aboutContainer' ref={about}>
-                    <About />
-                  </div>
-                  <div className='projectContainer' ref={projects}>
-                    <Projects />
-                  </div>
-                  <Contact />
-                  <div className='contactContainer' ref={contacts}>
-                  
-                  </div>
-          </div>
+          <nav className={navbar ? 'nav-scroll' : 'nav'}>
+            <h1 className='logowrap'><img  className='logo' src={mp} alt='MP'></img></h1>
+            <ul className='navList'>
+              <li className='link' onClick={() => scrollToSection(about)}>About</li>
+              <li className='link' onClick={() => scrollToSection(projects)}>Projects</li>
+              <li className='link' onClick={() => scrollToSection(contacts)}>Contact</li>
+            </ul>
+            {show && brgr} {!show && x}
+            {!show && brgrNav}
+          </nav>
+          
+          <header className='typewriter'><h1>Hello! My name is Maninder Pahal.</h1><h1 className='changeTxt'>I am a <span className='changer'>
+            <TypeAnimation
+               sequence={[
+                'front end developer.',
+                1000,
+                'technophile.',
+                1000,
+                'life long learner.',
+                1000
+               ]}
+               wrapper="span"
+               speed={50}
+               repeat={Infinity}
+               />
+            </span></h1></header>
+            <ScrollToTop smooth  component={<span id="arrow" class="material-symbols-outlined">
+            keyboard_double_arrow_up
+            </span>} />
+            <div className='aboutContainer' ref={about}>
+              <About />
+            </div>
+            <div className='projectContainer' ref={projects}>
+              <Projects />
+            </div>
+            
+            <div className='relative z-0' ref={contacts}>
+              <Contact />
+              <StarsCanvas />
+            </div>
+    </div>
+        </div>
     </div>
   );
 }

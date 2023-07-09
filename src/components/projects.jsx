@@ -3,6 +3,10 @@ import 'react-vertical-timeline-component/style.min.css';
 import { motion } from 'framer-motion';
 import { textVariant } from '../utils/motion';
 import reacticon from '../assets/reactjs.png';
+import bike from '../assets/bike.mp4';
+import gang from '../assets/gang.mp4';
+import waldo from '../assets/waldo.mp4';
+import resume from '../assets/resume.mp4';
 
 const experiences = [
     {
@@ -11,9 +15,10 @@ const experiences = [
       live: "https://pethoburr.github.io/shopping-cart/",
       code: "https://github.com/pethoburr/shopping-cart",
       points: [
-        "Developed a mock shopping website using React, React Router, function components and hooks",
+        "Developed a mock shopping website using React, React Router, functional components and hooks",
         "Included mobile responsivness, WCAG guidelines, semantic HTML"
       ],
+      vid: bike
     },
     {
       title: "Where's the weridos?",
@@ -24,7 +29,8 @@ const experiences = [
         "Developed a Where's Waldo style game involving 3 characters to find with a timer to track your score",
         "Included option to sign in with google account and use google username for updating score to leaderboard or manually entering custom name",
         "Implemented global leaderboards using Firebase backend",
-      ]
+      ],
+      vid: waldo
     },
     {
       title: "Resume Builder",
@@ -36,6 +42,7 @@ const experiences = [
         "Developed a Resume builder app in which you can enter your details into a form and on submit it will render a Resume preview",
         "Built with full mobile responsivness using React and implemented form best practices"
       ],
+      vid: resume
     },
     {
       title: "Memory Game",
@@ -47,7 +54,7 @@ const experiences = [
       points: [
         "Developed a memory game in which player attempts to select each individual card without selecting it twice. Max score is 12. Player high score is updated upon each beat"
       ],
-      vid: 'are benchodeee'
+      vid: gang
     },
   ];
   
@@ -81,7 +88,7 @@ const experiences = [
               {point}
             </li>
           ))}
-            <li><video src={experience.vid}></video></li>
+            <li><video src={experience.vid} autoPlay loop muted></video></li>
         </ul>
       </VerticalTimelineElement>
     );

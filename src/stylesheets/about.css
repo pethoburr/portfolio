@@ -1,9 +1,20 @@
 .intro {
+    text-align: center;
+    display: flex;
+    justify-content: center;
     padding: 1rem;
     margin-top: 1rem;
+    max-width: 50rem;
     display: flex;
     flex-direction: column;
     border: 2px solid white;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .techTitle {
@@ -14,8 +25,6 @@
 .techContainer {
     margin-top: 5rem;
 }
-
-
 
 p {
     color: white;
