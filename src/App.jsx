@@ -88,6 +88,9 @@ const App = () => {
 
   return (
     <div className="App">
+      <ScrollToTop smooth  component={<span id="arrow" class="material-symbols-outlined">
+            keyboard_double_arrow_up
+            </span>} />
       <div id='main'>
           <div id='main' ref={vanta} >
           <nav className={navbar ? 'nav-scroll' : 'nav'}>
@@ -116,9 +119,7 @@ const App = () => {
                repeat={Infinity}
                />
             </span></h1></header>
-            <ScrollToTop smooth  component={<span id="arrow" class="material-symbols-outlined">
-            keyboard_double_arrow_up
-            </span>} />
+            
             <div className='aboutContainer' ref={about}>
               <About />
             </div>

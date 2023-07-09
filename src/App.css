@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  
 }
 
 @tailwind base;
@@ -15,7 +14,10 @@
 }
 
 body {
-  width: 100vw !important;
+  overflow-x: visible;
+  padding: 0;
+  margin: 0;
+  width: 95vw !important;
   background-color: #07192f;
 }
 
@@ -71,12 +73,12 @@ body {
   flex-direction: column;
   padding: 2rem;
   padding-top: 10rem;
-  width: 100vw;
+  width: 95vw;
 }
 
 .pjContain {
   padding-top: 10rem;
-  width: 100vw;
+  width: 95vw;
 }
 
 h2 {
@@ -125,14 +127,14 @@ h1 {
 }
 
 .App {
-   width: 100vw !important;
+   width: 95vw !important;
 }
 
 #main {
   position: relative;
   height: 100vh;
-  width: 100vw !important;
-  
+  width: 95vw !important;
+
 }
 
 .brgrNav, .x {
@@ -146,7 +148,7 @@ h1 {
 }
 
 .vanta-canvas {
-  width: 100vw !important;
+  width: 90vw !important;
 }
 
 img {

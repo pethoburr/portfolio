@@ -6,7 +6,7 @@ const App = React.lazy(() => import('./App'))
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<div className='loading'>loading...</div>}>
+    <Suspense fallback={<div className='loading'><p>loading...</p></div>}>
       <App />
     </Suspense>
   </React.StrictMode>

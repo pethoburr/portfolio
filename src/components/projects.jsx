@@ -7,6 +7,7 @@ import bike from '../assets/bike.mp4';
 import gang from '../assets/gang.mp4';
 import waldo from '../assets/waldo.mp4';
 import resume from '../assets/resume.mp4';
+import { useState, useRef } from 'react';
 
 const experiences = [
     {
@@ -88,7 +89,9 @@ const experiences = [
               {point}
             </li>
           ))}
-            <li><video src={experience.vid} autoPlay loop muted></video></li>
+            <li>
+              <video src={experience.vid} controls muted></video>
+              </li>
         </ul>
       </VerticalTimelineElement>
     );
