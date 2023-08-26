@@ -6,6 +6,10 @@ import css from '../assets/css.png';
 import git from '../assets/git.png';
 import reactjs from '../assets/reactjs.png';
 import threejs from '../assets/threejs.svg';
+import node from '../assets/nodejs.png';
+import mongo from '../assets/mongodb.png';
+import tailwind from '../assets/tailwind.png';
+import github from '../assets/github.png';
 
 
 const technologies = [
@@ -32,7 +36,23 @@ const technologies = [
     {
         name: 'Three JS',
         icon: threejs
-    }
+    },
+    {
+        name: 'Node',
+        icon: node
+    },
+    {
+        name: 'Github',
+        icon: github
+    },
+    {
+        name: 'MongoDB',
+        icon: mongo
+    },
+    {
+        name: 'Tailwind CSS',
+        icon: tailwind
+    },
 ]
 
 const Tech = () => {
@@ -40,7 +60,7 @@ const Tech = () => {
         <div className='ballContainer'>
             {technologies.map((tech) => (
                 <div className='ball'>
-                    {tech.icon}
+                    <img id='techImg' src={tech.icon} alt={tech.name} />
                 </div>
             ))}
         </div>

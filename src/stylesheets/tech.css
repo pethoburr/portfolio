@@ -1,9 +1,9 @@
-.ballContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+#techImg {
+    height: 9rem;
+    width: 9rem;
+    border-radius: 3px;
 }
 
-.ball {
-    width: 9rem;
+.ballContainer {
+    display: flex;
 }

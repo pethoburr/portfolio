@@ -7,9 +7,22 @@ import bike from '../assets/bike.mp4';
 import gang from '../assets/gang.mp4';
 import waldo from '../assets/waldo.mp4';
 import resume from '../assets/resume.mp4';
+import msgboard from '../assets/msgboard.mp4';
 import { useState, useRef } from 'react';
 
 const experiences = [
+  {
+    title: "Mini message board",
+    icon: reacticon,
+    iconBg: "#E6DEDD",
+    live: "https://weathered-dream-325.fly.dev/",
+    code: "https://github.com/pethoburr/mini-message-board",
+    points: [
+      "Developed a mini message board app created using NodeJS, ExpressJS, MongoDB, Mongoose, PUG",
+      "Deployed and hosted with fly.io"
+    ],
+    vid: msgboard
+  },
     {
       title: "Shopping Cart",
       iconBg: "#383E56",
@@ -51,7 +64,6 @@ const experiences = [
       iconBg: "#E6DEDD",
       live: "https://pethoburr.github.io/memory-game/",
       code: "https://github.com/pethoburr/memory-game/",
-      date: "Jan 2023 - Present",
       points: [
         "Developed a memory game in which player attempts to select each individual card without selecting it twice. Max score is 12. Player high score is updated upon each beat"
       ],
