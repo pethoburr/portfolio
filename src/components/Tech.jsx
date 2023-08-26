@@ -1,6 +1,5 @@
 import React from 'react';
 import '../stylesheets/tech.css';
-import { BallCanvas } from '../components/ball';
 import javascript from '../assets/javascript.png';
 import html from '../assets/html.png';
 import css from '../assets/css.png';
@@ -41,7 +40,7 @@ const Tech = () => {
         <div className='ballContainer'>
             {technologies.map((tech) => (
                 <div className='ball'>
-                    <BallCanvas icon={tech.icon} />
+                    {tech.icon}
                 </div>
             ))}
         </div>
