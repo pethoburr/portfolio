@@ -1,4 +1,3 @@
-import BIRDS from 'vanta/src/vanta.birds';
 import mp from '../src/assets/mp-logo.png';
 import Projects from './components/projects';
 import Contact from './components/contact';
@@ -18,7 +17,6 @@ const App = () => {
                     <li onClick={() => scrollToSection(projects)}>Projects</li>
                     <li onClick={() => scrollToSection(contacts)}>Contact</li>
                   </ul>
-  const vanta = useRef(null);
   const about = useRef(null);
   const projects = useRef(null);
   const contacts = useRef(null);
@@ -42,7 +40,7 @@ const App = () => {
     })
   }
 
-  const changeBackground = () => {
+  const changeHeaderBackground = () => {
     const windowHeight = window.innerHeight;
     const scrollHeight = document.documentElement.scrollHeight - windowHeight;
     const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -55,36 +53,9 @@ const App = () => {
   }
 
   useEffect(() => {
-    changeBackground();
-    window.addEventListener('scroll', changeBackground);
+    changeHeaderBackground();
+    window.addEventListener('scroll', changeHeaderBackground);
   })
-
-  useEffect(() => {
-    let effectInstance;
-
-    const initializeVanta = async () => {
-      if(!effectInstance && vanta.current) {
-        effectInstance = await BIRDS({
-          el: vanta.current,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          quantity: 2,
-          birdSize: 1.20,
-          color1: 0x3cff
-        })
-        
-      }
-    }
-
-    initializeVanta();
-    
-  },[])
-
 
   return (
     <div className="App">
@@ -92,7 +63,7 @@ const App = () => {
             keyboard_double_arrow_up
             </span>} />
       <div id='main'>
-          <div id='main' ref={vanta} >
+          <div id='main' >
           <nav className={navbar ? 'nav-scroll' : 'nav'}>
             <h1 className='logowrap'><img  className='logo' src={mp} alt='MP'></img></h1>
             <ul className='navList'>
