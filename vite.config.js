@@ -9,6 +9,9 @@ export default defineConfig(() => {
     build: {
       outDir: 'build',
     },
+    esbuild: {
+      loader: "jsx"
+    },
     base: '/portfolio/',
     plugins: [react()],
   };
