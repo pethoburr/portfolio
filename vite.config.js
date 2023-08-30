@@ -11,8 +11,6 @@ export default defineConfig(() => {
     },
     base: '/portfolio/',
     plugins: [react()],
-    optimizeDeps: {
-      exclude: ['react-three-fiber']
-    }
+    
   };
 });
