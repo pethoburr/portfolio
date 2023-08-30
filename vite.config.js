@@ -7,7 +7,7 @@ export default defineConfig(() => {
         'process.env': {},
     },
     build: {
-      outDir: 'dist',
+      outDir: 'build',
     },
     base: '/portfolio/',
     plugins: [react()],
